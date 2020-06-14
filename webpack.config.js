@@ -6,6 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js',
+    navbar: './src/navbar.js',
     print: './src/print.js',
     another: './src/another-module.js',
   },
@@ -18,6 +19,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-object-rest-spread'],
             cacheDirectory: true
           }
         }
