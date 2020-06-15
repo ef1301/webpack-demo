@@ -8,7 +8,6 @@ module.exports = {
     app: './src/index.js',
     navbar: './src/navbar.js',
     print: './src/print.js',
-    another: './src/another-module.js',
   },
   module: {
     rules: [
@@ -24,12 +23,21 @@ module.exports = {
           }
         }
       },
-
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
     ]
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3000,
+    open: true
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
