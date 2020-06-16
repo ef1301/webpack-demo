@@ -3,6 +3,8 @@ import printMe from './print.js';
 import navbar from './navbar.js';
 import form from './form.js';
 import './style.css'; //css works
+import gallery from './gallery.js';
+//import './map.js';
 
 function apiStylesheet() {
   const stylesheet = document.createElement("link");
@@ -34,6 +36,9 @@ function component() {
   btn.onclick = printMe;
 
   element.appendChild(btn);
+
+  const imageGallery = gallery();
+  element.appendChild(imageGallery);
 
   const formelement = form();
   element.appendChild(formelement);
