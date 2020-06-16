@@ -30,6 +30,12 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
+      },
     ]
   },
   devtool: 'inline-source-map',

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import printMe from './print.js';
 import navbar from './navbar.js';
 import form from './form.js';
-//import './style.css';
+import './style.css'; //css works
 
 function apiStylesheet() {
   const stylesheet = document.createElement("link");
