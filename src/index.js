@@ -4,7 +4,7 @@ import navbar from './navbar.js';
 import form from './form.js';
 import './style.css'; //css works
 import gallery from './gallery.js';
-//import './map.js';
+import './map.js';
 
 function apiStylesheet() {
   const stylesheet = document.createElement("link");
@@ -29,8 +29,8 @@ function apiScript() {
 function component() {
   const element = document.createElement('main');
   const btn = document.createElement('button');
-  // Lodash, currently included via a script, is required for this line to work
-  //element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+
 
   btn.innerHTML = "Click me and check the console!";
   btn.onclick = printMe;
