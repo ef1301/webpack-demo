@@ -5,6 +5,11 @@ html, body, #viewDiv {
     width: 100%;
 }
 
+#viewDiv {
+    height: 50vh;
+    width: 50vw;
+}
+
 header {
     text-align: center;
     width: 100%;

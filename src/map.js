@@ -1,24 +1,19 @@
-require(["esri/views/MapView", "esri/WebMap"], function(MapView, WebMap) {
-  /************************************************************
-   * Creates a new WebMap instance. A WebMap must reference
-   * a PortalItem ID that represents a WebMap saved to
-   * arcgis.com or an on-premise portal.
-   *
-   * To load a WebMap from an on-premise portal, set the portal
-   * url with esriConfig.portalUrl.
-   ************************************************************/
-  var webmap = new WebMap({
-    portalItem: {
-      // autocasts as new PortalItem()
-      id: "f2e9b762544945f390ca4ac3671cfa72"
-    }
-  });
+import { loadModules } from 'esri-loader';
 
-  /************************************************************
-   * Set the WebMap instance to the map property in a MapView.
-   ************************************************************/
-  var view = new MapView({
-    map: webmap,
-    container: "viewDiv"
-  });
-});
+// this will lazy load the ArcGIS API
+// and then use Dojo's loader to require the classes
+export default function loadMap(container, basemap) {
+  return loadModules(
+    ["esri/Map", "esri/views/MapView"],
+    {css: "https://js.arcgis.com/4.10/esri/css/main.css"}
+  ).then(([Map, MapView]) => {
+    const map = new Map({ basemap });
+    const view = new MapView({
+      container,
+      map,
+      center: [-118.71511,34.09042],
+      zoom: 11,
+    });
+    return view;
+  })
+}
