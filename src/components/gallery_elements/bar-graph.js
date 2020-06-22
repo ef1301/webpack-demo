@@ -1,5 +1,5 @@
 var helpers = require('../form_elements/helpers.js');
-import bar_graph from '../assets/bar_graph.png';
+import bar_graph from '../../assets/bar_graph.png';
 
 export default function barGraph() {
   const article = document.createElement('article');

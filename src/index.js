@@ -1,23 +1,24 @@
 import _ from 'lodash';
-import printMe from './print.js';
-import navbar from './navbar.js';
-import form from './form.js';
-import './style.css'; //css works
-import gallery from './gallery.js';
-import loadMap from './map.js';
+import printMe from './components/print.js';
+import navbar from './components/navbar.js';
+import form from './components/form.js';
+import gallery from './components/gallery.js';
+import loadMap from './components/map.js';
 
-function apiStylesheet() {
-  const stylesheet = document.createElement("link");
-  stylesheet.setAttribute("rel", "stylesheet");
-  stylesheet.setAttribute("href", "https://js.arcgis.com/4.15/esri/themes/light/main.css");
-  return stylesheet;
-}
+import './styles/style.scss';
 
-function apiScript() {
-  const apiScript = document.createElement("script");
-  apiScript.src = "https://js.arcgis.com/4.15/";
-  return apiScript;
-}
+//function apiStylesheet() {
+  //const stylesheet = document.createElement("link");
+  //stylesheet.setAttribute("rel", "stylesheet");
+  //stylesheet.setAttribute("href", "https://js.arcgis.com/4.15/esri/themes/light/main.css");
+  //return stylesheet;
+//}
+
+//function apiScript() {
+  //const apiScript = document.createElement("script");
+  //apiScript.src = "https://js.arcgis.com/4.15/";
+  //return apiScript;
+//}
 
 function component() {
   const element = document.createElement('main');
@@ -40,8 +41,8 @@ function component() {
 const map = document.createElement('div');
 map.setAttribute('id', 'viewDiv');
 
-document.head.appendChild(apiStylesheet());
-document.head.appendChild(apiScript());
+//document.head.appendChild(apiStylesheet());
+//document.head.appendChild(apiScript());
 
 document.body.appendChild(navbar());
 document.body.appendChild(component());

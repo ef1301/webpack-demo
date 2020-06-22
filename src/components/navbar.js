@@ -1,7 +1,7 @@
 export default function navbar() {
   const header = document.createElement('header');
   const webtitle = document.createElement('h1');
-  var title = document.createTextNode("Accessibility");
+  var title = document.createTextNode("Style Guide");
   webtitle.appendChild(title);
   header.appendChild(webtitle);
 

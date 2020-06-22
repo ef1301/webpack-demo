@@ -1,5 +1,5 @@
 var helpers = require("../form_elements/helpers.js");
-import pie_graph from '../assets/favorite_fruit.png';
+import pie_graph from '../../assets/favorite_fruit.png';
 
 export default function pieChart() {
   const article = document.createElement('article');

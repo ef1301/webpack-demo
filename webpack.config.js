@@ -1,15 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ArcGISPlugin = require("@arcgis/webpack-plugin");
+//const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js',
-    navbar: './src/navbar.js',
-    print: './src/print.js',
+    app: './src/index.js'
   },
+  plugins: [
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    //    new ArcGISPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+    }),
+    new MiniCssExtractPlugin({
+      filename: "bundle.css"
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,11 +34,31 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
+
+        // Set loaders to transform files.
+        // Loaders are applying from right to left(!)
+        // The first loader will be applied after others
         use: [
-          'style-loader',
-          'css-loader',
-        ],
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            // This loader resolves url() and @imports inside CSS
+            loader: "css-loader",
+          },
+          {
+            // Then we apply postCSS fixes like autoprefixer and minifying
+            loader: "postcss-loader",
+          },
+          {
+            // First we transform SASS to standard CSS
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass"),
+            }
+          },
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -46,14 +75,6 @@ module.exports = {
     port: 3000,
     open: true
   },
-  plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new ArcGISPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Development',
-      template: "./src/index.html",
-    }),
-  ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
