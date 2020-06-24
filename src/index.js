@@ -22,12 +22,10 @@ import './styles/style.scss';
 
 function component() {
   const element = document.createElement('main');
-  const btn = document.createElement('button');
-
-  btn.innerHTML = "Click me and check the console!";
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
+  //const btn = document.createElement('button');
+  //btn.innerHTML = "Click me and check the console!";
+  //btn.onclick = printMe;
+  //element.appendChild(btn);
 
   //const imageGallery = gallery();
   //element.appendChild(imageGallery);

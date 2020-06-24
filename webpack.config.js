@@ -7,14 +7,46 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js'
+    app: './src/index.js',
+    elements: './src/pages/elements.js',
+    colors: './src/pages/colors.js',
+    icons: './src/pages/icons.js',
+    layout: './src/pages/layout.js',
+    links: './src/pages/links.js',
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     //    new ArcGISPlugin(),
+
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Development'
     }),
+    new HtmlWebpackPlugin({
+      title: 'Elements',
+      filename: './elements.html',
+      template: './src/template.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Colors',
+      filename: './colors.html',
+      template: './src/template.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Icons',
+      filename: './icons.html',
+      template: './src/template.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Layout',
+      filename: './layout.html',
+      template: './src/template.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Links',
+      filename: './links.html',
+      template: './src/template.html'
+    }),
+
     new MiniCssExtractPlugin({
       filename: "bundle.css"
     }),
