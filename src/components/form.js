@@ -12,16 +12,20 @@ export default function form() {
   const selectForm = option();
   const checklistForm = checklist();
 
+  let title = document.createElement("h1");
+  title.innerHTML = "Forms";
+  form.appendChild(title);
+
   form.appendChild(basicTextForm);
   form.appendChild(radioForm);
   form.appendChild(selectForm);
   form.appendChild(checklistForm);
 
-  const btn = document.createElement('button');
-  let btnAttributes = {'type': "submit", 'form': "user-form", 'value': "user-form-submission"};
-  helpers.setAttributes(btn, btnAttributes);
-  btn.appendChild(document.createTextNode("Submit"));
-  form.appendChild(btn);
+  // const btn = document.createElement('button');
+  // let btnAttributes = {'type': "submit", 'form': "user-form", 'value': "user-form-submission"};
+  // helpers.setAttributes(btn, btnAttributes);
+  // btn.appendChild(document.createTextNode("Submit"));
+  // form.appendChild(btn);
 
   return form;
 }

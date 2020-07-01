@@ -1,3 +1,4 @@
+
 export default function navbar() {
   const header = document.createElement('header');
   const webtitle = document.createElement('h1');
@@ -10,16 +11,16 @@ export default function navbar() {
 
   const nav = document.createElement('nav');
   const navlinks = document.createElement('ul');
+  navlinks.setAttribute('id', 'scroll-nav');
 
-  let linktitles = { "Elements": "/elements", "Links": "links.html", "Colors": "colors.html", "Icons": "icons.html", "Layout": "layout.html"};
+  let linktitles = { "Elements": "elements", "Colors": "colors", "Icons": "icons", "Layout": "layout"};
   for (const title in linktitles) {
-    let li = document.createElement('li');
-    let link = document.createElement('a');
-    link.setAttribute('href', linktitles[title]);
-    link.setAttribute('role', 'navigation');
+
+    let link = document.createElement('button');
+    link.setAttribute('id', linktitles[title] + "-link");
+    link.setAttribute('onclick', 'scroll()');
     link.appendChild(document.createTextNode(title));
-    li.appendChild(link);
-    navlinks.appendChild(li);
+    navlinks.appendChild(link);
   }
 
   nav.appendChild(navlinks);
