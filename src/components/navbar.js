@@ -1,4 +1,3 @@
-
 export default function navbar() {
   const header = document.createElement('header');
   const webtitle = document.createElement('h1');
@@ -20,6 +19,12 @@ export default function navbar() {
     link.setAttribute('id', linktitles[title] + "-link");
     link.setAttribute('onclick', 'scroll()');
     link.appendChild(document.createTextNode(title));
+    link.onclick = function() {
+      let id = linktitles[title];
+      let object = document.getElementById(id);
+      console.log(object);
+      object.scrollIntoView();
+    }
     navlinks.appendChild(link);
   }
 
