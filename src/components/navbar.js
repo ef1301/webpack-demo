@@ -1,3 +1,13 @@
+function toTheTop() {
+  let button = document.createElement("button");
+  button.id = "top-button";
+  button.innerHTML = "To the top!";
+  button.onclick = function() {
+    window.scrollTo(0, 0);
+  }
+  return button;
+}
+
 export default function navbar() {
   const header = document.createElement('header');
   const webtitle = document.createElement('h1');
@@ -17,19 +27,19 @@ export default function navbar() {
 
     let link = document.createElement('button');
     link.setAttribute('id', linktitles[title] + "-link");
-    link.setAttribute('onclick', 'scroll()');
     link.appendChild(document.createTextNode(title));
     link.onclick = function() {
       let id = linktitles[title];
       let object = document.getElementById(id);
       console.log(object);
       object.scrollIntoView();
-    }
+    };
     navlinks.appendChild(link);
   }
 
   nav.appendChild(navlinks);
   header.appendChild(nav);
+  header.appendChild(toTheTop());
 
   return header;
 }

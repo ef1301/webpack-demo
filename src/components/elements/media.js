@@ -2,6 +2,7 @@ import bar_graph from '../../assets/bar_graph.png';
 
 export default function media() {
   let container = document.createElement("div");
+  container.id = "media";
   let title = document.createElement("h1");
   title.innerHTML = "Media";
   container.appendChild(title);

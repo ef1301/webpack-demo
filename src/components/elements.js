@@ -7,20 +7,20 @@ import text from './elements/text.js';
 export default function elements() {
   let container = document.createElement('div');
   container.setAttribute("id", "elements");
+  let title = document.createElement("h1");
+  title.innerHTML = "Elements";
+  container.appendChild(title);
+
   const formElement = form();
-  container.appendChild(formElement);
-
   const linksElement = links();
-  container.appendChild(linksElement);
-
   const headingsElement = headings();
-  container.appendChild(headingsElement);
-
   const mediaElement = media();
-  container.appendChild(mediaElement);
-
   const textElement = text();
-  container.appendChild(textElement);
+
+  let allElements = [formElement, linksElement, headingsElement, mediaElement, textElement];
+  allElements.forEach(item => {
+    container.appendChild(item);
+  })
 
   return container;
 }
