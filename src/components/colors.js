@@ -1,4 +1,4 @@
-var RGB = true; //keeps track of state
+var RGB = false; //keeps track of state
 
 function changeToRGB() { //changes color codes to RBG if HEX
   if(!RGB) {

@@ -1,8 +1,6 @@
 html, body {
     padding: 0;
     margin: 0;
-    height: 100%;
-    width: 100%;
 }
 
 #viewDiv {
@@ -18,13 +16,13 @@ header {
     text-align: center;
     width: 100%;
     height: auto;
-    background-color: black;
+    background-color: #C5DBF2;
     padding: 1% 0 0 0;
     top: 0;
     left: 0;
     a {
         text-decoration: none;
-        color: white;
+        color: #241C15;
     }
     h1 {
         margin: 1% 0;
@@ -53,7 +51,7 @@ nav {
     }
 
     button:hover {
-        background-color: black;
+        background-color: #692340;
         color: white;
     }
 }
@@ -67,11 +65,15 @@ input:focus, button:focus, a:focus, select:focus {
     right: 2%;
     bottom: 10%;
     z-index: 10;
-    background-color: black;
+    background-color: #F25F25;
     color: white;
     font-size: 1.05em;
     padding: 1%;
-    border-radius: 10%;
+    border-radius: 50%;
+}
+
+#top-button:hover {
+    background-color: #692340;
 }
 
 #style-guide {
@@ -80,10 +82,34 @@ input:focus, button:focus, a:focus, select:focus {
     width: 90%;
     display: flex;
     flex-direction: column;
-    div {
+    .layout-breve {
         width: 100%;
         height: auto;
+        background-color: lightgray;
+        text-align: center;
+        padding: 5vh 1vw;
+        margin: 2vh auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        p {
+            width: 100%;
+        }
+        .layout-minim, .layout-crochet, .layout-quaver {
+            border-radius: 1%;;
+            background-color: #8C8C8C;
+        }
+        .layout-minim {
+            width: 45%;
+        }
+        .layout-crochet {
+            width: 30%;
+        }
+        .layout-quaver {
+            width: 10%;
+        }
     }
+
 }
 
 #colors {
@@ -99,17 +125,23 @@ input:focus, button:focus, a:focus, select:focus {
     }
 
     .swatch {
-        width: 5vw;
-        height: 5vh;
+        width: 7vw;
+        height: 8vh;
         padding: 5%;
         margin: 0;
         text-align: left;
+        p, span {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
     }
 
     div {
         display: flex;
         flex-flow: row wrap;
-        width: 90%;
+        width: 90vw;
         height: auto;
         margin: 5vh auto;
         h2 {
