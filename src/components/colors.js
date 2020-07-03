@@ -24,6 +24,15 @@ function changeToHEX() { //changes color codes to HEX if RGB
   }
 }
 
+function getContrastYIQ(hexcolor){
+  hexcolor = hexcolor.replace("#", "");
+  var r = parseInt(hexcolor.substr(0,2),16);
+  var g = parseInt(hexcolor.substr(2,2),16);
+  var b = parseInt(hexcolor.substr(4,2),16);
+  var yiq = ((r*299)+(g*587)+(b*114))/1000;
+  return (yiq >= 128) ? '#241C15' : '#FFFFFF';
+}
+
 function colorSwitch() {
   let switchBar = document.createElement('span');
   switchBar.id = "switchBar";
@@ -67,6 +76,7 @@ function functionalColors() {
     let swatch = new document.createElement('div');
     swatch.setAttribute("class", "swatch");
     swatch.style.backgroundColor = colors[color].HEX;
+    swatchName.style.color = getContrastYIQ(colors[color].HEX);
     swatch.appendChild(swatchName);
 
     let br = document.createElement("br");
@@ -76,6 +86,7 @@ function functionalColors() {
     colorCode.setAttribute("class", "color-code");
     colorCode.innerHTML = colors[color].HEX;
     colorCode.value = {"HEX": colors[color].HEX, "RGB": colors[color].RGB};
+    colorCode.style.color = getContrastYIQ(colors[color].HEX);
 
     swatch.appendChild(colorCode);
     container.appendChild(swatch);
@@ -104,6 +115,7 @@ function feedbackColors() {
     let swatch = new document.createElement('div');
     swatch.setAttribute("class", "swatch");
     swatch.style.backgroundColor = colors[color].HEX;
+    swatchName.style.color = getContrastYIQ(colors[color].HEX);
     swatch.appendChild(swatchName);
 
     let br = document.createElement("br");
@@ -113,6 +125,7 @@ function feedbackColors() {
     colorCode.setAttribute("class", "color-code");
     colorCode.innerHTML = colors[color].HEX;
     colorCode.value = {"HEX": colors[color].HEX, "RGB": colors[color].RGB};
+    colorCode.style.color = getContrastYIQ(colors[color].HEX);
 
     swatch.appendChild(colorCode);
     container.appendChild(swatch);
@@ -139,6 +152,7 @@ function accentColors() {
     let swatch = new document.createElement('div');
     swatch.setAttribute("class", "swatch");
     swatch.style.backgroundColor = colors[color].HEX;
+    swatchName.style.color = getContrastYIQ(colors[color].HEX);
     swatch.appendChild(swatchName);
 
     let br = document.createElement("br");
@@ -148,6 +162,7 @@ function accentColors() {
     colorCode.setAttribute("class", "color-code");
     colorCode.innerHTML = colors[color].HEX;
     colorCode.value = {"HEX": colors[color].HEX, "RGB": colors[color].RGB};
+    colorCode.style.color = getContrastYIQ(colors[color].HEX);
 
     swatch.appendChild(colorCode);
     container.appendChild(swatch);
