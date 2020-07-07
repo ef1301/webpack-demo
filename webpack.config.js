@@ -47,6 +47,9 @@ module.exports = {
           {
             // This loader resolves url() and @imports inside CSS
             loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
           },
           {
             // Then we apply postCSS fixes like autoprefixer and minifying
@@ -57,7 +60,12 @@ module.exports = {
             loader: "sass-loader",
             options: {
               implementation: require("sass"),
+              sourceMap: true,
+              sourceMapContents: false,
             }
+          },
+          {
+            loader: 'resolve-url-loader',
           },
         ]
       },

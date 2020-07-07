@@ -65,15 +65,14 @@ input:focus, button:focus, a:focus, select:focus {
     right: 2%;
     bottom: 10%;
     z-index: 10;
-    background-color: #F25F25;
-    color: white;
-    font-size: 1.05em;
+    font-size: 1em;
     padding: 1%;
-    border-radius: 50%;
+    border: none;
 }
 
 #top-button:hover {
-    background-color: #692340;
+    background-color: black;
+    color: white;
 }
 
 #style-guide {
