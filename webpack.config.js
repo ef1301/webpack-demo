@@ -47,25 +47,17 @@ module.exports = {
           {
             // This loader resolves url() and @imports inside CSS
             loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            // Then we apply postCSS fixes like autoprefixer and minifying
-            loader: "postcss-loader",
           },
           {
             // First we transform SASS to standard CSS
             loader: "sass-loader",
             options: {
               implementation: require("sass"),
-              sourceMap: true,
-              sourceMapContents: false,
             }
           },
           {
-            loader: 'resolve-url-loader',
+            // Then we apply postCSS fixes like autoprefixer and minifying
+            loader: "postcss-loader",
           },
         ]
       },
@@ -75,9 +67,6 @@ module.exports = {
           'file-loader',
         ],
       },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/icon-woff" }
     ]
   },
   devtool: 'inline-source-map',
