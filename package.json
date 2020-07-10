@@ -50,6 +50,6 @@
   "dependencies": {
     "@types/arcgis-js-api": "^4.15.0",
     "esri-loader": "^2.14.0",
-    "lodash": "^4.17.18"
+    "lodash": "^4.17.19"
   }
 }

@@ -7,7 +7,7 @@ export default function headings() {
   container.appendChild(title);
 
   for(let i = 1; i < 7; i++) {
-    let object = new document.createElement("h" + i);
+    let object = document.createElement("h" + i);
     object.innerHTML = "A new kind of public service";
     wrapper.appendChild(object);
   }

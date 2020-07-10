@@ -35,6 +35,25 @@ module.exports = {
         }
       },
       {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+          {
+            loader: 'url-loader?limit=100000',
+          },
+        ]
+      },
+      {
+        test: /\.(png|jpeg|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
 
         // Set loaders to transform files.
@@ -42,11 +61,18 @@ module.exports = {
         // The first loader will be applied after others
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              sourceMap: true,
+              publicPath: "../"
+            }
           },
           {
             // This loader resolves url() and @imports inside CSS
             loader: "css-loader",
+          },
+          {
+            loader: "resolve-url-loader",
           },
           {
             // First we transform SASS to standard CSS
@@ -60,12 +86,6 @@ module.exports = {
             loader: "postcss-loader",
           },
         ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
       },
     ]
   },

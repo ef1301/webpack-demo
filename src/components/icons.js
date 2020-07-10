@@ -10,6 +10,7 @@ export default function icons() {
     icon.setAttribute("class", iconClass);
     icon.innerHTML = iconClass;
     container.appendChild(icon);
+    container.appendChild(document.createElement("br"));
   });
 
   return container;

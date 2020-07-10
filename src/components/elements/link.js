@@ -15,10 +15,10 @@ export default function links() {
   text.appendChild(link);
   wrapper.appendChild(text);
 
-  link = new document.createElement("a");
+  link = document.createElement("a");
   link.innerHTML = "an inline link.";
   link.href = "#";
-  text = new document.createElement("p");
+  text = document.createElement("p");
   text.innerHTML = "This is ";
   text.appendChild(link);
   wrapper.append(text);
