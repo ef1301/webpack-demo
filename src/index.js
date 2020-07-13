@@ -12,7 +12,6 @@ import layout from './components/layout.js';
 import './styles/style.scss';
 import './styles/responsive.scss';
 import './styles/fonts/icomoon/style.css';
-//import './styles/layout.scss';
 
 function component() {
   //const map = document.createElement('div');
