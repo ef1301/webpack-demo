@@ -14,6 +14,7 @@ import './styles/responsive.scss';
 import './styles/fonts/icomoon/style.css';
 import './styles/fonts/indie-flower/style.css';
 import './styles/fonts/major-mono-display/style.css';
+import './styles/fonts/changa/style.css';
 
 function component() {
   //const map = document.createElement('div');
