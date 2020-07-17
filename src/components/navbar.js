@@ -8,19 +8,54 @@ function toTheTop() {
   return button;
 }
 
+function sidebar() {
+  const nav = document.createElement('nav');
+  nav.setAttribute('id', 'sidebar-nav');
+  let left = document.createElement("div");
+  left.setAttribute("id", "sidebar-left");
+  let right = document.createElement("div");
+  right.setAttribute("id", "sidebar-right");
+
+  let linktitles = { "Elements": "elements", "Colors": "colors", "Icons": "icons", "Layout": "layout"};
+  for (const title in linktitles) {
+
+    let link = document.createElement('button');
+    let abbr = document.createElement("button");
+    abbr.innerHTML = title[0];
+    link.setAttribute('id', linktitles[title] + "-link");
+    link.appendChild(document.createTextNode(title));
+    link.onclick = function() {
+      let id = linktitles[title];
+      let object = document.getElementById(id);
+      object.scrollIntoView();
+    };
+
+    left.appendChild(abbr);
+    right.appendChild(link);
+  }
+  nav.appendChild(left);
+  nav.appendChild(right);
+
+  nav.appendChild(toTheTop());
+  return nav;
+}
+
 export default function navbar() {
   const header = document.createElement('header');
+  let container = document.createElement('div');
+  container.id = "header-title";
   const webtitle = document.createElement('h1');
   let a = document.createElement('a');
   a.href = "/";
   var title = document.createTextNode("Style Guide");
   a.appendChild(title);
   webtitle.appendChild(a);
-  header.appendChild(webtitle);
+  container.appendChild(webtitle);
+  header.appendChild(container);
 
   const nav = document.createElement('nav');
   const navlinks = document.createElement('ul');
-  navlinks.setAttribute('id', 'scroll-nav');
+  nav.setAttribute('id', 'scroll-nav');
 
   let linktitles = { "Elements": "elements", "Colors": "colors", "Icons": "icons", "Layout": "layout"};
   for (const title in linktitles) {
@@ -37,9 +72,10 @@ export default function navbar() {
     navlinks.appendChild(link);
   }
 
-  nav.appendChild(navlinks);
-  header.appendChild(nav);
-  header.appendChild(toTheTop());
+  //nav.appendChild(navlinks);
+  //header.appendChild(nav);
+  header.appendChild(sidebar());
+  //header.appendChild(toTheTop());
 
   return header;
 }

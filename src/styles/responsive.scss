@@ -1,10 +1,16 @@
 @media only screen and (max-width: 750px) {
+    #top-button {
+        right: 5%;
+    }
+
     body {
     }
 
     #style-guide {
-        margin: 15vh 0;
-        div {
+        width: 90vw;
+
+        #elements, #colors, #icons, #layout {
+            margin: auto;
         }
     }
 
@@ -21,13 +27,11 @@
             padding: 1%;
             text-align: left;
             p, span {
-                width: 50vw;
+                width: 40vw;
             }
         }
 
         div {
-            h2 {
-            }
             display: flex;
             flex-flow: column wrap;
             height: auto;
@@ -35,4 +39,11 @@
             margin: auto;
         }
     }
+
+    #icons {
+        span {
+            margin: 0;
+        }
+    }
+
 }
