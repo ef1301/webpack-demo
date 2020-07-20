@@ -1,16 +1,50 @@
 @media only screen and (max-width: 750px) {
-    #top-button {
-        right: 5%;
-    }
-
     body {
     }
 
-    #style-guide {
-        width: 90vw;
+    header {
+        #header-title {
+            font-size: 1.1em;
+        }
+    }
 
+    #sidebar-nav {
+        width: 10vw;
+        button {
+            height: 5vh;
+        }
+
+        #sidebar-left {
+            width: 10vw;
+            button {
+
+            }
+        }
+
+        #sidebar-right {
+            width: 20vw;
+            button {
+            }
+        }
+    }
+
+    #top-button {
+        width: 10vw;
+    }
+
+    #sidebar-nav:hover {
+        width: 30vw;
+    }
+
+    #style-guide {
+        margin: 20vh auto;
+        width: 70vw;
         #elements, #colors, #icons, #layout {
             margin: auto;
+        }
+
+        h1 {
+            width: 50vw;
         }
     }
 
@@ -21,7 +55,7 @@
         }
 
         .swatch {
-            width: 90vw;
+            width: 80vw;
             height: 5vh;
             margin: auto;
             padding: 1%;
@@ -35,15 +69,24 @@
             display: flex;
             flex-flow: column wrap;
             height: auto;
-            width: 90vw;
+            width: 100%;
             margin: auto;
         }
     }
 
     #icons {
+        padding: 0;
+        flex-flow: column wrap;
+        text-align: left;
         span {
-            margin: 0;
         }
     }
 
+    #layout {
+        div {
+            width: 100%;
+            font-size: .9em;
+            margin: auto;
+        }
+    }
 }

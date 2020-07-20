@@ -40,65 +40,33 @@ header {
     }
 }
 
-/*nav {
-    left: 0;
-    width: 100%;
-    height: auto;
-    margin: 2% 0 0 0;
-    ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-    }
-    li {
-    }
-    button {
-        font-size: 1.05em;
-        text-decoration: none;
-        background-color:white;
-        padding: .5em;
-        color: black;
-    }
-
-    button:hover {
-        background-color: #692340;
-        color: white;
-    }
-}*/
-
 #sidebar-nav {
     position: fixed;
     background-color: #E7B75F;
     padding: 0;
     margin: 0;
     height: 100vh;
-    width: 5vw;
+    //width: 5vw;
     z-index: 25;
     overflow: hidden;
-    white-sapce: nowrap;
     border-right: solid lightgray .025em;
-
-    button {
-        font-family: "Major Mono Display";
-        display: inline-block;
-        font-size: 1.05em;
-        text-decoration: none;
-        padding: .5em;
-        border: none;
-        height: 2.5vw;
-    }
 
     #sidebar-left, #sidebar-right {
         display: inline-block;
         height: 100%;
         flex-flow: column wrap;
+        button {
+            height: 5vh;
+            font-family: "Major Mono Display";
+            font-size: 1.05em;
+            text-decoration: none;
+            border: none;
+        }
     }
 
     #sidebar-left {
         width: 5vw;
         button {
-            height: 3vw;
             width: 100%;
             visibility: visible;
             background-color: #E7B75F;
@@ -110,10 +78,9 @@ header {
     #sidebar-right {
         top: 0;
         width: 15vw;
-        visibility: hidden;
+        //visibility: hidden;
         background-color: #FBEECA;
         button {
-            height: 3vw;
             width: 100%;
             background-color: #FBEECA;
             border-bottom: solid #E7B75F 1px;
@@ -132,25 +99,22 @@ header {
     }
 }
 
-input:focus, button:focus, a:focus, select:focus {
+/*input:focus, button:focus, a:focus, select:focus {
     border: solid 5px yellow;
-}
+}*/
 
 #top-button {
-   /* position: fixed;
-    right: 2%;
-    bottom: 10%;
-    z-index: 10;*/
+    font-family: "Changa", Times, serif;
     font-size: 1em;
     margin: 0;
-    padding: 1%;
     border: none;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 5vw;
     background-color: #C5DBF2;
-    border-top: solid lightgray .025em;
+    padding: 1% 0;
+    height: auto;
 }
 
 #top-button:hover {
@@ -215,7 +179,7 @@ input:focus, button:focus, a:focus, select:focus {
 
     .swatch {
         font-family: 'Indie Flower', Arial, sans-serif;
-        font-size: 1.5em;
+        font-size: 1.25em;
         width: 7vw;
         height: 8vh;
         padding: 5%;
@@ -236,7 +200,7 @@ input:focus, button:focus, a:focus, select:focus {
         height: auto;
         margin: 5vh auto;
         h2 {
-            width: 100%;
+            width: 80vw;
         }
     }
 }
