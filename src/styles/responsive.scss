@@ -25,55 +25,91 @@
             width: 70vw;
         }
     }
+
+    #layout, #colors {
+        font-size: .9em;
+    }
 }
 
-@media only screen and (max-width: 750px) {
-    body {
-    }
-
+@media only screen and (max-width: 800px) {
     header {
         #header-title {
-            font-size: 1.1em;
+            font-size: .9em;
         }
     }
 
     #sidebar-nav {
-        width: 15vw;
-        button {
-            height: 5vh;
+        height: 5vh;
+        width: 100vw;
+        #sidebar-left, #sidebar-right {
+            flex-flow: row, wrap;
+            width: 100vw;
         }
 
         #sidebar-left {
-            width: 15vw;
+            display: flex;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            visibility: hidden;
             button {
-
+                visibility: hidden;
             }
         }
-
         #sidebar-right {
-            width: 20vw;
+            visibility: visible;
+            width: 100vw;
+            overflow: none;
             button {
+                width: auto;
+                border: none;
             }
+        }
+    }
+
+    #sidebar-nav:hover {
+        width: 100vw;
+        #sidebar-right {
+            width: 100vw;
+            visibility: visible;
         }
     }
 
     #top-button {
-        width: 15vw;
-    }
-
-    #sidebar-nav:hover {
-        width: 35vw;
+        visibility: hidden;
     }
 
     #style-guide {
         margin: 20vh auto;
-        width: 70vw;
+        width: 80vw;
         #elements, #colors, #icons, #layout {
             margin: auto;
+            width: 100%;
         }
 
         h1 {
             width: 50vw;
+        }
+    }
+
+
+    #elements {
+        audio {
+            width: 70vw;
+        }
+
+        video {
+            width: 70vw;
+            height: 50vw;
+        }
+
+        img {
+            width: 70vw;
+        }
+
+        detail {
+            font-size: 1em;
         }
     }
 
@@ -114,50 +150,35 @@
     #layout {
         div {
             width: 100%;
-            font-size: .9em;
+            font-size: .8em;
             margin: auto;
         }
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
+    body {
+        /*h1 {
+            font-size: 1em;
+        }
+        h2, h3, h4, h5, h6 {
+            font-size: .9em
+        }*/
+    }
+
+    header {
+        #header-title {
+            font-size: .75em;
+        }
+    }
+
     #sidebar-nav {
-        height: 5vh;
-        width: 100vw;
-        #sidebar-left, #sidebar-right {
-            flex-flow: row, wrap;
-            width: 100vw;
-        }
-
-        #sidebar-left {
-            display: flex;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            visibility: hidden;
-            button {
-                visibility: hidden;
-            }
-        }
         #sidebar-right {
-            visibility: visible;
-            button {
-                width: auto;
-                border: none;
-            }
         }
     }
 
-    #sidebar-nav:hover {
-        width: 100vw;
-        #sidebar-right {
-            width: 100vw;
-            visibility: visible;
-        }
-    }
-
-    #top-button {
-        visibility: hidden;
+    blockquote {
+        font-size: .75em;
+        margin: 5%;
     }
 }

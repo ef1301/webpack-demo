@@ -165,6 +165,26 @@ header {
     }
 }
 
+
+#elements {
+    audio {
+        width: 50vw;
+    }
+
+    video {
+        width: 50vw;
+        height: 50vh;
+    }
+
+    img {
+        width: 60vw;
+    }
+
+    detail {
+        font-size: 1em;
+    }
+}
+
 #colors {
     #switchBar {
         height: auto;
