@@ -8,7 +8,7 @@ import colors from './components/colors.js';
 import icons from './components/icons.js';
 import layout from './components/layout.js';
 
-//import loadMap from './components/map.js';
+import loadMap from './components/map.js';
 import './styles/style.scss';
 import './styles/responsive.scss';
 import './styles/fonts/icomoon/style.css';
@@ -17,10 +17,6 @@ import './styles/fonts/major-mono-display/style.css';
 import './styles/fonts/changa/style.css';
 
 function component() {
-  //const map = document.createElement('div');
-  //map.setAttribute('id', 'viewDiv');
-  //document.body.appendChild(map);
-
   const element = document.createElement('main');
   element.setAttribute('id', 'style-guide');
 
@@ -34,6 +30,10 @@ function component() {
   element.appendChild(iconsContainer);
   element.appendChild(layoutContainer);
 
+  const map = document.createElement('div');
+  map.setAttribute('id', 'viewDiv');
+  element.appendChild(map);
+
   return element;
 }
 
@@ -41,4 +41,5 @@ function component() {
 document.body.appendChild(navbar());
 document.body.appendChild(component());
 
-//loadMap("viewDiv", "topo-vector");
+
+loadMap("viewDiv", "topo-vector");

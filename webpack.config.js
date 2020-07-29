@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    //    new ArcGISPlugin(),
+    //new ArcGISPlugin(),
     new HtmlWebpackPlugin({
       title: 'Development',
       template: './src/template.html'

@@ -16,7 +16,7 @@ function sidebar() {
   let right = document.createElement("div");
   right.setAttribute("id", "sidebar-right");
 
-  let linktitles = { "Elements": "elements", "Colors": "colors", "Icons": "icons", "Layout": "layout"};
+  let linktitles = { "Elements": "elements", "Colors": "colors", "Icons": "icons", "Layout": "layout", "Map": "viewDiv"};
   for (const title in linktitles) {
 
     let link = document.createElement('button');
