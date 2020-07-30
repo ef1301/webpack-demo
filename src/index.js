@@ -8,7 +8,7 @@ import colors from './components/colors.js';
 import icons from './components/icons.js';
 import layout from './components/layout.js';
 
-import loadMap from './components/map.js';
+import * as mapFunction from './components/map.js';
 import './styles/style.scss';
 import './styles/responsive.scss';
 import './styles/fonts/icomoon/style.css';
@@ -29,6 +29,7 @@ function component() {
   element.appendChild(colorsContainer);
   element.appendChild(iconsContainer);
   element.appendChild(layoutContainer);
+  element.appendChild(mapFunction.searchResults())
 
   const map = document.createElement('div');
   map.setAttribute('id', 'viewDiv');
@@ -42,4 +43,4 @@ document.body.appendChild(navbar());
 document.body.appendChild(component());
 
 
-loadMap("viewDiv", "topo-vector");
+mapFunction.loadMap("viewDiv", "topo-vector");
