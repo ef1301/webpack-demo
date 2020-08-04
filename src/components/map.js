@@ -21,48 +21,52 @@ function searchAddress(query) {
   });
 }
 
+function search() {
+  let query = document.getElementById("search-query").value;
+  let e = document.getElementById("search-results");
+  let json = [];
+  searchAddress(query)
+    .then(esri => {
+      console.log(esri);
+      console.log(`${esri.candidates[0].address}`);
+      json.push(esri);
+      console.log(e);
+      e.innerHTML = JSON.stringify(json, null, 2);
+      return searchAddress(query)
+    })
+    .catch(error => console.log(`${error}`));
+}
+
 export function searchResults() {
   let searchForm = document.createElement("form");
   searchForm.setAttribute("id", "search-form");
   let query = document.createElement("input");
-  query.type = "text;"
+  query.type = "text";
   query.id = "search-query";
   searchForm.appendChild(query);
-  let json = [];
-  searchForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    searchAddress(query.value)
-      .then(esri => {
-        console.log(esri);
-        console.log(`${esri.candidates[0].address}`);
-        json.push(esri);
-        let e = document.getElementById('main');
-        e.innerHTML = JSON.stringify(json, null, 2);
-        return searchAddress(esri)
-      })
-      .catch(error => console.log(`${error}`));
-  });
 
   let button = document.createElement("button");
-  button.type = "submit";
+  button.type = "button";
   button.innerHTML = "Submit";
   searchForm.appendChild(button);
 
   let details = document.createElement("details");
-  let main = document.createElement("pre");
-  main.id = "main";
+  let results = document.createElement("pre");
+  results.setAttribute("id", "search-results");
   let summary = document.createElement("summary");
-  summary.appendChild(main);
+  summary.id = "dd";
+  details.appendChild(results);
   summary.innerHTML = "Search Results";
   details.appendChild(summary);
-
   searchForm.appendChild(details);
+
+  let json = [];
+  button.addEventListener("click", () => {
+    search();
+  });
 
   return searchForm;
 }
-
-//let button = document.getElementsByClassName("esri-search__submit-button esri-widget--button");
-//console.log(button);
 
 // this will lazy load the ArcGIS API
 // and then use Dojo's loader to require the classes
