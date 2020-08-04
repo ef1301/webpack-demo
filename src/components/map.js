@@ -72,7 +72,7 @@ export function searchResults() {
 // and then use Dojo's loader to require the classes
 export function loadMap(container, basemap) {
   return loadModules(
-    ["esri/Map", "esri/views/MapView", "esri/widgets/Search"],
+    ["esri/Map", "esri/views/MapView", "esri/widgets/Search", "esri/layers/GeoJSONLayer"],
     {css: "https://js.arcgis.com/4.10/esri/css/main.css"}
   ).then(([Map, MapView, Search]) => {
     const map = new Map({ basemap });
@@ -82,6 +82,7 @@ export function loadMap(container, basemap) {
       center: [-118.71511,34.09042],
       zoom: 11,
     });
+    //const geoJSONLayer = new GeoJSONLayer({});
 
     //var search = new Search({
     //  view: view,
