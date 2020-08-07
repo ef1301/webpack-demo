@@ -1,5 +1,5 @@
 import { loadModules } from 'esri-loader';
-
+import jsonToGeoJSON from './geojson.js';
 
 function searchAddress(query) {
   let url = `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${query}&outFields=Match_addr,Addr_type`;
@@ -25,6 +25,7 @@ function search() {
   let query = document.getElementById("search-query").value;
   let e = document.getElementById("search-results");
   let json = [];
+  let results = [];
   searchAddress(query)
     .then(esri => {
       console.log(esri);
