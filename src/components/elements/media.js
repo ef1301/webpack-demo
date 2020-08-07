@@ -7,7 +7,6 @@ export default function media() {
   title.innerHTML = "Media";
   container.appendChild(title);
 
-  title = new document.createElement("h2");
   title.innerHTML = "Video";
   container.appendChild(title);
   let video = document.createElement("video");

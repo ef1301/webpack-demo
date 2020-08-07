@@ -43,4 +43,5 @@ document.body.appendChild(navbar());
 document.body.appendChild(component());
 
 
-mapFunction.loadMap("viewDiv", "topo-vector");
+mapFunction.loadMap("viewDiv", "gray");
+//mapFunction.loadMap();

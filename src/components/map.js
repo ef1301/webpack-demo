@@ -54,13 +54,11 @@ export function searchResults() {
   let results = document.createElement("pre");
   results.setAttribute("id", "search-results");
   let summary = document.createElement("summary");
-  summary.id = "dd";
   details.appendChild(results);
   summary.innerHTML = "Search Results";
   details.appendChild(summary);
   searchForm.appendChild(details);
 
-  let json = [];
   button.addEventListener("click", () => {
     search();
   });
@@ -70,20 +68,73 @@ export function searchResults() {
 
 // this will lazy load the ArcGIS API
 // and then use Dojo's loader to require the classes
-export function loadMap(container, basemap) {
+export function loadMap(c, b) {
+//export function loadMap() {
   return loadModules(
     ["esri/Map", "esri/views/MapView", "esri/widgets/Search", "esri/layers/GeoJSONLayer"],
     {css: "https://js.arcgis.com/4.10/esri/css/main.css"}
-  ).then(([Map, MapView, Search]) => {
-    const map = new Map({ basemap });
+  ).then(([Map, MapView, Search, GeoJSONLayer]) => {
+    const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+
+    const renderer = {
+      type: "simple",
+      field: "mag",
+      symbol: {
+        type: "simple-marker",
+        color: "orange",
+        outline: {
+          color: "white"
+        }
+      },
+      visualVariables: [
+        {
+          type: "size",
+          field: "mag",
+          stops: [
+            {
+              value: 2.5,
+              size: "4px"
+            },
+            {
+              value: 8,
+              size: "40px"
+            }
+          ]
+        }
+      ]
+    };
+    
+    const template = {
+      title: "Earthquake Info",
+      content: "Magnitude {mag} {type} hit {place} on {time}",
+      fieldInfos: [
+        {
+          fieldName: "time",
+          format: {
+            dateFormat: "short-date-short-time"
+          }
+        }
+      ]
+    };
+
+    const geojsonLayer = new GeoJSONLayer({
+      url: url,
+      copyright: "USGS Earthquakes",
+      template: template,
+      renderer: renderer //optional
+    });
+    const map = new Map({ 
+      basemap: b, 
+      layers: [geojsonLayer]
+    });
     const view = new MapView({
-      container,
-      map,
+      container: c,
+      map: map,
       center: [-118.71511,34.09042],
       zoom: 11,
     });
-    //const geoJSONLayer = new GeoJSONLayer({});
 
+      
     //var search = new Search({
     //  view: view,
     //});
