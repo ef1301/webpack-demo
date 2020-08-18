@@ -75,8 +75,9 @@ export function loadMap(c, b) {
     ["esri/Map", "esri/views/MapView", "esri/widgets/Search", "esri/layers/GeoJSONLayer"],
     {css: "https://js.arcgis.com/4.10/esri/css/main.css"}
   ).then(([Map, MapView, Search, GeoJSONLayer]) => {
-    const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-
+    //const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+    const url = "https://data.cityofnewyork.us/resource/he7q-3hwy.geojson";
+    
     const renderer = {
       type: "simple",
       field: "mag",
@@ -87,22 +88,22 @@ export function loadMap(c, b) {
           color: "white"
         }
       },
-      visualVariables: [
-        {
-          type: "size",
-          field: "mag",
-          stops: [
-            {
-              value: 2.5,
-              size: "4px"
-            },
-            {
-              value: 8,
-              size: "40px"
-            }
-          ]
-        }
-      ]
+     // visualVariables: [
+     //   {
+     //     type: "size",
+     //     field: "mag",
+     //     stops: [
+     //       {
+     //         value: 2.5,
+     //         size: "4px"
+     //       },
+     //       {
+     //         value: 8,
+     //         size: "40px"
+     //       }
+     //     ]
+     //   }
+     // ]
     };
     
     const template = {
@@ -120,8 +121,8 @@ export function loadMap(c, b) {
 
     const geojsonLayer = new GeoJSONLayer({
       url: url,
-      copyright: "USGS Earthquakes",
-      template: template,
+      //copyright: "USGS Earthquakes",
+      //template: template,
       renderer: renderer //optional
     });
     const map = new Map({ 
@@ -131,7 +132,7 @@ export function loadMap(c, b) {
     const view = new MapView({
       container: c,
       map: map,
-      center: [-118.71511,34.09042],
+      center: [-73.86835600032798, 40.84916900104506],
       zoom: 11,
     });
 
